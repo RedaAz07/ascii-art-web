@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: wheat;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: whitesmoke;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 600px;
+    height: 500px;
+}
+
+h1 {
+    color: #1649f0;
+    margin-bottom: 40px;
+    font-size: 50px;
+}
+
+.input {
+    width: 70%;
+    height: 60px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 20px;
+    resize: none;
+    text-align: center;
+}
+
+
+button {
+    background-color: rgb(108, 14, 248);
+    color: white;
+    border: none;
+    font-size: 23px;
+    font-weight: bold;
+    border-radius: 10px;
+    width: 220px;
+    height: 55px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.radio-input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 37px;
+}
+
+.radio-input label {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 0px 20px;
+    width: 220px;
+    cursor: pointer;
+    height: 50px;
+    position: relative;
+    font-size: 24px;
+    margin-left: 50px;
+}
+
+.radio-input .label input[type="radio"] {
+    width: 17px;
+    height: 17px;
+}
+
+@media only screen and (max-width: 700px) {
+    .container {
+        width: 400px;
+    }
+    h1 {
+        font-size: 30px;
+    }
+}
