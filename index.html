@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Art Generator</title>
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="icon"  href="icon.webp" />
+</head>
+
+<body>
+    <form action="/ascii-art" method="post">
+         <div class="container">
+        <h1>Ascii Art Web</h1>
+        <textarea name="text" id="" class="input" placeholder="Type text here ..." required></textarea>
+        <div class="radio-input">
+            <label class="label">
+                <input type="radio" id="value-1" checked="" name="value-radio" value="value-1" />
+                <p class="text">Shadow</p>
+            </label>
+            <label class="label">
+                <input type="radio" id="value-2" name="value-radio" value="value-2" />
+                <p class="text">Standard</p>
+            </label>
+            <label class="label">
+                <input type="radio" id="value-3" name="value-radio" value="value-3" />
+                <p class="text">Thinkertoy</p>
+            </label>
+        </div>
+        <button type="submit">Generate</button>
+    </div>
+    </form>
+   
+</body>
+
+</html>
