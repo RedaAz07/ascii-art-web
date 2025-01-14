@@ -7,8 +7,27 @@ import (
 	"strings"
 )
 
-func Ascii(worr string) string {
-	Filename := "standard.txt"
+func Ascii(worr string, typee string) string {
+
+	 var Filename  string 
+
+
+if typee  == "standard"  {
+	
+	Filename = "standard.txt"
+}else if  typee == "shadow" {
+	Filename = "shadow.txt"
+
+
+
+
+
+}else if  typee =="thinkertoy" {
+
+	Filename = "thinkertoy.txt"
+
+
+}
 	file, err := os.Open(Filename)
 	if err != nil {
 		log.Fatal("Error opening file 😡 :", err)

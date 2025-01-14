@@ -25,7 +25,9 @@ func homeFunc(w http.ResponseWriter, r *http.Request) {
 	tp1, _ := template.ParseFiles("home.html")
 
 	worr := r.FormValue("word")
-	laste := ascii.Ascii(worr)
+	typee := r.FormValue("typee")
 
-	tp1.Execute(w, laste)
+	laste := ascii.Ascii(worr , typee)
+
+	tp1.Execute(w, laste) 
 }
