@@ -1,0 +1,32 @@
+http server :  kayb9a y  listen reauest li katjih mn l clients fchi port .  aky3aljha 
+-----> receiving request fach  l clients kaysift chi reauest 
+-----> handlign reaquest kay3alj talabat bwa7d l3iba li slith al handler  hy b7al l function li  kat9ool l server chno ydiir ex : ila tleeb /  server ghay9ol lhandler y3tih dk lhtml dyal dik l page 
+-----> sending response mn b3d handling server kaysift dk respose li bhga l client li katkon 3la chkeel 
+html al jsoon ila akhirih ....
+
+http : protocol kifach kayhder server m3a l clients ...  request katkon fiha  get w lpost  w url w headers( ktkon mt3l9a ghaliban bl brawser b7al lang .. ) ,  response katkon 3ibara 3la status code b7al 
+200 : seccsees
+404 not found :  mal9ach dakchi 
+500 : error f server 
+   
+   
+   
+   
+   
+   
+ listenand serve : lkhdma dyal hwa t creer wah7d htttp server li kyb9a y listen fchi port  akyb9a u accepter  request li katjih mn  clients ..
+
+
+ handler  howa li  ghayb9a y khdem dok request li katjih o fach kandiroh nil  server kaykhdem DefaultServeMux( kaykhdem bdefault Server Multiplexer li   li kkaywzee3 talabat li katjih 3la function handlers   li monasiba  3la hsaab  url li 3titih  )
+ 
+ 
+ 
+ sokcet  hwa wa7d lwasit  li kaykhli 2 baramij thder m3a b3dha b7al server w 
+ browser 
+ web socket :  kayt7taj fl app wl web li kaykhsha  itisaal mostamir
+ tcp  udp  socket  
+  
+  
+  
+  
+  
