@@ -2,36 +2,28 @@ package ascii
 
 import (
 	"bufio"
-	"log"
+	"net/http"
 	"os"
 	"strings"
 )
 
-func Ascii(worr string, typee string) string {
+func Ascii(worr string, typee string , w http.ResponseWriter) string {
+	var Filename string
 
-	 var Filename  string 
-
-
-if typee  == "standard"  {
-	
-	Filename = "standard.txt"
-}else if  typee == "shadow" {
-	Filename = "shadow.txt"
-
-
-
-
-
-}else if  typee =="thinkertoy" {
-
-	Filename = "thinkertoy.txt"
-
-
-}
-	file, err := os.Open(Filename)
-	if err != nil {
-		log.Fatal("Error opening file 😡 :", err)
+	if typee == "standard" {
+		Filename = "standard.txt"
+	} else if typee == "shadow" {
+		Filename = "shadow.txt"
+	} else if typee == "thinkertoy" {
+		Filename = "thinkertoy.txt"
 	}
+	file, err := os.Open(Filename)
+
+	if  err !=  nil  {
+		http.Error(w,"efezfef",400)
+  return "grg"
+	} 
+	
 	defer file.Close()
 
 	run := []string{}
@@ -58,10 +50,6 @@ if typee  == "standard"  {
 
 	splitSlice := strings.Split(worr, "\n")
 
-	if totalLines != 854 {
-		log.Fatal("There is some issues with your file standard.txt")
-	}
-
 	var laste string
 	if strings.Replace(worr, "\n", "", -1) == "" {
 		for i := 0; i < strings.Count(worr, "\n"); i++ {
@@ -70,5 +58,5 @@ if typee  == "standard"  {
 	}
 	laste = PrintAscii(splitSlice, AsciiMap)
 
-	return laste 
+	return laste
 }

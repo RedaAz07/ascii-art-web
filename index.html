@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <style>
-    body {
-      background-color: black;
-      color: bisque;
-    }
-  </style>
 
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Art Generator</title>
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="icon"  href="icon.webp" />
+</head>
+
+<body>
     <form action="/home" method="post">
-      word : <textarea name="word" id=""></textarea>
-      <br><br><br>
-
-standard <input type="radio"  name="typee" value="standard" >
-shadow  <input type="radio"  name="typee" value="shadow" >
-thinkertoy  <input type="radio"  name="typee" value="thinkertoy">
-
-
-
-
-
-      <button type="submit" >click</button>
+         <div class="container">
+        <h1>Ascii Art Web</h1>
+        <textarea name="word" id="" class="input" placeholder="Type text here ..." ></textarea>
+        <div class="radio-input">
+            <label class="label">
+                <input type="radio" id="value-1"  name="typee" value="shadow" />
+                <p class="text">Shadow</p>
+            </label>
+            <label class="label">
+                <input type="radio" id="value-2" name="typee" value="standard" />
+                <p class="text">Standard</p>
+            </label>
+            <label class="label">
+                <input type="radio" id="value-3" name="typee" value="thinkertoy" />
+                <p class="text">Thinkertoy</p>
+            </label>
+        </div>
+        <button type="submit">Generate</button>
+    </div>
     </form>
-  </body>
+   
+</body>
+
 </html>
