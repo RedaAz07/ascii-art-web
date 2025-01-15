@@ -12,7 +12,7 @@ import (
 func main() {
 	http.Handle("/styles/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path == "/styles/" {
-			http.Redirect(w, r, "/notfound", 303)
+			http.Redirect(w, r, "/notfound", 404)
 			return
 		}
 		http.StripPrefix("/styles", http.FileServer(http.Dir("styles"))).ServeHTTP(w, r)
@@ -23,7 +23,7 @@ func main() {
 	http.HandleFunc("/notfound", notFoundFunc)
 
 	http.HandleFunc("/404", func(w http.ResponseWriter, r *http.Request) {
-		http.Redirect(w, r, "/notfound", http.StatusFound)
+		http.Redirect(w, r, "/notfound", http.StatusNotFound)
 	})
 
 	fmt.Println("Server running at http://localhost:8080/")
@@ -32,7 +32,7 @@ func main() {
 
 func formFunc(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
-		http.Redirect(w, r, "/notfound", http.StatusFound)
+		http.Redirect(w, r, "/notfound", http.StatusNotFound)
 		return
 	}
 
@@ -47,12 +47,12 @@ func formFunc(w http.ResponseWriter, r *http.Request) {
 
 func ResultFunc(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/ascii-art" {
-		http.Redirect(w, r, "/notfound", http.StatusFound)
+		http.Redirect(w, r, "/notfound", http.StatusNotFound)
 		return
 	}
 
 	if r.Referer() != "http://localhost:8080/" {
-		http.Redirect(w, r, "/", http.StatusFound)
+		http.Redirect(w, r, "/", http.StatusNotFound)
 		return
 	}
 
