@@ -17,12 +17,12 @@ func Ascii(word string, typee string, w http.ResponseWriter) string {
 	} else if typee == "thinkertoy" {
 		Filename = "files/thinkertoy.txt"
 	}
+
 	file, err := os.Open(Filename)
 	if err != nil {
-		http.Error(w, "efezfef", 400)
-		return "grg"
+		http.Error(w, "Wrong file", http.StatusBadRequest)
+		return ""
 	}
-
 	defer file.Close()
 
 	run := []string{}
@@ -30,11 +30,9 @@ func Ascii(word string, typee string, w http.ResponseWriter) string {
 	count := 0
 	space := ' '
 	Myscanner := bufio.NewScanner(file)
-	totalLines := 0
 
 	for Myscanner.Scan() {
 		text := Myscanner.Text()
-		totalLines++
 		if text != "" {
 			run = append(run, text)
 			count++

@@ -28,7 +28,8 @@ The main page includes:
 4. **Output Display**: Displays the generated ASCII art on the same page or on a separate results page.
 
 ## Authors
-- Ahmed Biaid
+- Ahmed Baid (abaid)
+- Reda Anniz (ranniz)
 
 ## Usage
 ### Running the Project
@@ -63,15 +64,23 @@ The main page includes:
 
 ### Project Structure
 ```
-ascii-art-web/
-├── asciiart/       // ASCII art logic reused from the previous project
-├── templates/      // HTML templates
-│   ├── index.html  // Main page
-│   ├── result.html // Results page (optional)
-├── static/         // CSS or JavaScript files (optional)
-├── main.go         // Main Go program
-├── go.mod          // Go modules file
-└── README.md       // Project documentation
+ASCII-ART-WEB/
+├── files/           // Contains ASCII art files (e.g., shadow.txt, standard.txt, thinkertoy.txt)
+├── functions/       // Go logic for ASCII art generation
+│   ├── ascii.go
+│   ├── PrintAscii.go
+├── styles/          // CSS styles for the application
+│   ├── index.css
+│   ├── notFound.css
+│   ├── result.css
+├── template/        // HTML templates
+│   ├── index.html
+│   ├── notfound.html
+│   ├── result.html
+├── go.mod           // Go module file
+├── main.go          // Main Go application
+└── README.md        // Documentation
+
 ```
 
 ### Instructions
@@ -93,10 +102,13 @@ ascii-art-web/
    - Banner: `shadow`
 
 2. **Output**:
-```
- |    |   |   |
- |--- |   |---|
- |    |   |   |
+```                              
+_|                _| _|          
+_|_|_|     _|_|   _| _|   _|_|   
+_|    _| _|_|_|_| _| _| _|    _| 
+_|    _| _|       _| _| _|    _| 
+_|    _|   _|_|_| _| _|   _|_|   
+                                 
 ```
 
 Visit the application at [http://localhost:8080](http://localhost:8080) to test it yourself!
