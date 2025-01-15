@@ -28,8 +28,7 @@ The main page includes:
 4. **Output Display**: Displays the generated ASCII art on the same page or on a separate results page.
 
 ## Authors
-- Ahmed Biaid (abaid)
-- anniz reda (ranniz)
+- Ahmed Biaid
 
 ## Usage
 ### Running the Project
