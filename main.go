@@ -12,48 +12,65 @@ import (
 func main() {
 	http.Handle("/styles/", http.StripPrefix("/styles", http.FileServer(http.Dir("styles"))))
 
-	http.HandleFunc("/home", homeFunc)
+	http.HandleFunc("/ascii-art", ResultFunc)
 	http.HandleFunc("/", formFunc)
 
-	fmt.Println("http://localhost:8080/")
+	http.HandleFunc("/notfound", notFoundFunc)
+	// Default handler for non-existent routes
+	http.HandleFunc("/404", func(w http.ResponseWriter, r *http.Request) {
+		http.Redirect(w, r, "/notfound", http.StatusFound)
+	})
+
+	fmt.Println("Server running at http://localhost:8080/")
 	http.ListenAndServe(":8080", nil)
 }
 
 func formFunc(w http.ResponseWriter, r *http.Request) {
-	tp2, _ := template.ParseFiles("index.html")
-	if r.Method != "GET" {
-		http.Error(w, "Bad Request - GET Only", 405)
+	if r.URL.Path != "/" {
+		http.Redirect(w, r, "/notfound", http.StatusFound)
 		return
 	}
 
-
-
+	tp2, _ := template.ParseFiles("template/index.html")
+	if r.Method != "GET" {
+		http.Error(w, "Bad Request - GET Only", http.StatusMethodNotAllowed)
+		return
+	}
 
 	tp2.Execute(w, nil)
 }
 
-func homeFunc(w http.ResponseWriter, r *http.Request) {
-	tp1, _ := template.ParseFiles("home.html")
-
-	worr := r.FormValue("word")
-	typee := r.FormValue("typee")
-
-	if worr == "" || typee == "" {
-		http.Error(w, "Word and Type are required", http.StatusBadRequest)
+func ResultFunc(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path != "/ascii-art" {
+		http.Redirect(w, r, "/notfound", http.StatusFound)
 		return
 	}
 
-	for i := 0; i < len(worr); i++ {
-		if unicode.IsLetter(rune(worr[i])) && (worr[i] < 32 || worr[i] > 126) {
-			http.Error(w, " there is a special charts in ur  text ..... ", 400)
+	tp1, _ := template.ParseFiles("template/result.html")
+
+	word := r.FormValue("word")
+	typee := r.FormValue("typee")
+
+
+
+	for i := 0; i < len(word); i++ {
+		if unicode.IsLetter(rune(word[i])) && (word[i] < 32 || word[i] > 126) {
+			http.Error(w, "There are special characters in your text.", http.StatusBadRequest)
 			return
 		}
 	}
 
-	laste := ascii.Ascii(worr, typee,w)
+	laste := ascii.Ascii(word, typee, w)
 	if r.Method != "POST" {
-		http.Error(w, "Bad Request - POST Only", http.StatusBadRequest)
+		http.Error(w, "Bad Request - POST Only", http.StatusMethodNotAllowed)
 		return
 	}
+
 	tp1.Execute(w, laste)
+}
+
+func notFoundFunc(w http.ResponseWriter, r *http.Request) {
+	tp, _ := template.ParseFiles("template/notfound.html")
+	w.WriteHeader(http.StatusNotFound)
+	tp.Execute(w, nil)
 }

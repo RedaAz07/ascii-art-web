@@ -1,0 +1,59 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container Styling */
+.container {
+    text-align: center;
+}
+
+/* Oops! Text Styling */
+.oops {
+    font-size: 170px;
+    font-weight: bold;
+    color: #4b0082; /* Indigo shade */
+    background: url(https://www.shutterstock.com/image-vector/starry-vector-sky-seamless-pattern-260nw-2455385371.jpg) repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+/* 404 Error Code */
+.error-code {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Message Styling */
+.message {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Button Styling */
+.home-btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #4b0082;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.home-btn:hover {
+    background-color: #360060; /* Darker indigo */
+}

@@ -7,23 +7,22 @@ import (
 	"strings"
 )
 
-func Ascii(worr string, typee string , w http.ResponseWriter) string {
+func Ascii(word string, typee string, w http.ResponseWriter) string {
 	var Filename string
 
 	if typee == "standard" {
-		Filename = "standard.txt"
+		Filename = "files/standard.txt"
 	} else if typee == "shadow" {
-		Filename = "shadow.txt"
+		Filename = "files/shadow.txt"
 	} else if typee == "thinkertoy" {
-		Filename = "thinkertoy.txt"
+		Filename = "files/thinkertoy.txt"
 	}
 	file, err := os.Open(Filename)
+	if err != nil {
+		http.Error(w, "efezfef", 400)
+		return "grg"
+	}
 
-	if  err !=  nil  {
-		http.Error(w,"efezfef",400)
-  return "grg"
-	} 
-	
 	defer file.Close()
 
 	run := []string{}
@@ -48,11 +47,11 @@ func Ascii(worr string, typee string , w http.ResponseWriter) string {
 		}
 	}
 
-	splitSlice := strings.Split(worr, "\n")
+	splitSlice := strings.Split(word, "\n")
 
 	var laste string
-	if strings.Replace(worr, "\n", "", -1) == "" {
-		for i := 0; i < strings.Count(worr, "\n"); i++ {
+	if strings.Replace(word, "\n", "", -1) == "" {
+		for i := 0; i < strings.Count(word, "\n"); i++ {
 			laste += "\n"
 		}
 	}

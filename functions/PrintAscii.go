@@ -1,9 +1,7 @@
 package ascii
 
-
-
 func PrintAscii(splitSlice []string, AsciiMap map[rune][]string) string {
-	  var result  string
+	var result string
 	for _, word := range splitSlice {
 		if word != "" {
 			for line := 0; line < 8; line++ {
@@ -18,5 +16,5 @@ func PrintAscii(splitSlice []string, AsciiMap map[rune][]string) string {
 			result += "\n"
 		}
 	}
-	return  result 
+	return result
 }
