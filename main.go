@@ -12,7 +12,7 @@ import (
 func main() {
 	http.Handle("/styles/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path == "/styles/" {
-			http.Redirect(w, r, "/notfound", 404)
+			http.Redirect(w, r, "/notfound", http.StatusFound)
 			return
 		}
 		http.StripPrefix("/styles", http.FileServer(http.Dir("styles"))).ServeHTTP(w, r)
@@ -22,17 +22,13 @@ func main() {
 	http.HandleFunc("/", formFunc)
 	http.HandleFunc("/notfound", notFoundFunc)
 
-	http.HandleFunc("/404", func(w http.ResponseWriter, r *http.Request) {
-		http.Redirect(w, r, "/notfound", http.StatusNotFound)
-	})
-
 	fmt.Println("Server running at http://localhost:8080/")
 	http.ListenAndServe(":8080", nil)
 }
 
 func formFunc(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
-		http.Redirect(w, r, "/notfound", http.StatusNotFound)
+		http.Redirect(w, r, "/notfound", http.StatusFound)
 		return
 	}
 
@@ -47,12 +43,7 @@ func formFunc(w http.ResponseWriter, r *http.Request) {
 
 func ResultFunc(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/ascii-art" {
-		http.Redirect(w, r, "/notfound", http.StatusNotFound)
-		return
-	}
-
-	if r.Referer() != "http://localhost:8080/" {
-		http.Redirect(w, r, "/", http.StatusNotFound)
+		http.Redirect(w, r, "/notfound", http.StatusFound)
 		return
 	}
 
@@ -66,8 +57,8 @@ func ResultFunc(w http.ResponseWriter, r *http.Request) {
 	word := r.FormValue("word")
 	typee := r.FormValue("typee")
 
-	if word == "" || typee == "" {
-		http.Error(w, "Bad Request - Please fill out the form", http.StatusBadRequest)
+	if word == "" || typee == "" || len(word) > 5000 {
+		http.Error(w, "Bad Request - Please fill out the form (word and type)", http.StatusBadRequest)
 		return
 	}
 
