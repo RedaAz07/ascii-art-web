@@ -20,7 +20,6 @@ func Ascii(word string, typee string, w http.ResponseWriter) string {
 
 	file, err := os.Open(Filename)
 	if err != nil {
-		http.Error(w, "Wrong file", http.StatusBadRequest)
 		return ""
 	}
 	defer file.Close()
