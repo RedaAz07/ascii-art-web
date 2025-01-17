@@ -10,27 +10,28 @@
 
 <body>
     <form action="/ascii-art" method="post">
-         <div class="container">
-        <h1>Ascii Art Web</h1>
-        <textarea name="word" id="" class="input" placeholder="Type text here ..." ></textarea>
-        <div class="radio-input">
-            <label class="label">
-                <input type="radio" id="value-1"  name="typee" value="shadow" />
-                <p class="text">Shadow</p>
-            </label>
-            <label class="label">
-                <input type="radio" id="value-2" name="typee" value="standard" />
-                <p class="text">Standard</p>
-            </label>
-            <label class="label">
-                <input type="radio" id="value-3" name="typee" value="thinkertoy" />
-                <p class="text">Thinkertoy</p>
-            </label>
+        <div class="container">
+            <h1>Ascii Art Web</h1>
+            <textarea name="word" id="" class="input" placeholder="Type text here ..."></textarea>
+            <div class="radio-input">
+                <label class="label">
+                    <input type="radio" id="value-1" name="typee" value="shadow" />
+                    <p class="text">Shadow</p>
+                </label>
+                <label class="label">
+                    <input type="radio" id="value-2" name="typee" value="standard" />
+                    <p class="text">Standard</p>
+                </label>
+                <label class="label">
+                    <input type="radio" id="value-3" name="typee" value="thinkertoy" />
+                    <p class="text">Thinkertoy</p>
+                </label>
+            </div>
+            <div class="error">{{.Error}}</div>
+
+            <button type="submit">Generate</button>
         </div>
-        <button type="submit">Generate</button>
-    </div>
     </form>
-   
 </body>
 
 </html>
