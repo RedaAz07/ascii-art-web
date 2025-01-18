@@ -25,7 +25,11 @@ func main() {
 	http.HandleFunc("/MethodNotAllowed", MethodNotAllowedFunc)
 
 	fmt.Println("Server running at http://localhost:8080/")
-	http.ListenAndServe(":8080", nil)
+	err :=  http.ListenAndServe(":8080", nil)
+    if  err !=  nil {
+	fmt.Println("Server ererertregerg at http://localhost:8080/")
+        
+    }
 }
 
 func formFunc(w http.ResponseWriter, r *http.Request) {
@@ -81,6 +85,7 @@ func ResultFunc(w http.ResponseWriter, r *http.Request) {
 
 	if errorMessage != "" {
 		tp1, _ := template.ParseFiles("template/index.html")
+        w.WriteHeader(http.StatusBadRequest)
 
 		tp1.Execute(w, errorMessage)
 
