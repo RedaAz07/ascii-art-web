@@ -1,86 +1,137 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: wheat;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: wheat;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .container {
-    background: whitesmoke;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 600px;
-    height: 500px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+  background: whitesmoke;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 600px;
+  height: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
 h1 {
-    color: #1649f0;
-    margin-bottom: 40px;
-    font-size: 50px;
+  color: #1649f0;
+  margin-bottom: 40px;
+  font-size: 50px;
 }
 
 .input {
-    width: 70%;
-    height: 60px;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 20px;
-    resize: none;
-    text-align: center;
+  width: 70%;
+  height: 60px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 20px;
+  resize: none;
+  text-align: center;
 }
 
-
 button {
-    background-color: rgb(108, 14, 248);
-    color: white;
-    border: none;
-    font-size: 23px;
-    font-weight: bold;
-    border-radius: 10px;
-    width: 220px;
-    height: 55px;
-    cursor: pointer;
-    text-align: center;
+  background-color: rgb(108, 14, 248);
+  color: white;
+  border: none;
+  font-size: 23px;
+  font-weight: bold;
+  border-radius: 10px;
+  width: 220px;
+  height: 55px;
+  cursor: pointer;
+  text-align: center;
 }
 
 .radio-input {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 37px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 37px;
 }
 
 .radio-input label {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 0px 20px;
-    width: 220px;
-    cursor: pointer;
-    height: 50px;
-    position: relative;
-    font-size: 24px;
-    margin-left: 50px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 0px 20px;
+  width: 220px;
+  cursor: pointer;
+  height: 50px;
+  font-size: 24px;
+  margin-left: 50px;
 }
 
 .radio-input .label input[type="radio"] {
-    width: 17px;
-    height: 17px;
+  width: 17px;
+  height: 17px;
 }
 
 @media only screen and (max-width: 700px) {
-    .container {
-        width: 400px;
-    }
-    h1 {
-        font-size: 30px;
-    }
+  .container {
+    width: 400px;
+  }
+  h1 {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  .container {
+    width: 280px;
+  }
+  h1 {
+    font-size: 20px;
+  }
+}
+
+.error {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 80%;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin: auto;
+  flex-direction: row;
+  background: #d32519ef;
+  border-radius: 8px;
+  box-shadow: 0px 0px 5px -3px #111;
+}
+
+.error__icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+.error__icon path {
+  fill: #fff;
+}
+
+.error__title {
+  font-weight: 500;
+  font-size: 14px;
+  color: #fff;
+}
+
+.error__icon {
+  width: 20px;
+  height: 20px;
+  transform: translateY(-2px);
+  margin-right: 8px;
+}
+
+.error__title {
+  font-weight: 500;
+  font-size: 14px;
+  color: #fff;
 }

@@ -2,12 +2,11 @@ package ascii
 
 import (
 	"bufio"
-	"net/http"
 	"os"
 	"strings"
 )
 
-func Ascii(word string, typee string, w http.ResponseWriter) string {
+func Ascii(word string, typee string) string {
 	var Filename string
 
 	if typee == "standard" {
